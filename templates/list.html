@@ -8,9 +8,9 @@
         {% for user in users %}
             <li>
                 <img src="{{ user.image_url }}" alt="{{ user.first_name }} {{ user.last_name }}" width="100">
-                <a href="/{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</a>
-                <a href="/{{ user.id }}/edit" class="btn btn-primary">Edit</a>
-                <form action="/{{ user.id }}/delete" method="post" style="display: inline;">
+                <a href="{{ url_for('show_user', user_id=user.id) }}">{{ user.first_name }} {{ user.last_name }}</a>
+                <a href="{{ url_for('edit_user', user_id=user.id) }}" class="btn btn-primary">Edit</a>
+                <form action="{{ url_for('delete_user', user_id=user.id) }}" method="post" style="display: inline;">
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </li>
